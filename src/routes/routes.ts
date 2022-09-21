@@ -4,21 +4,17 @@ import {
   PostBookController,
   UpdateBookController,
   DeleteBookController,
+  NotFoundController,
 } from "../controllers/controllers";
 import { Book } from "../entities/Book";
-import { Books } from "../utils/books";
-interface UpdateLivros extends Book {
-  newAuthor?: string;
-  newBookName?: string;
-}
-const biblioteca = Books.all();
+import { BookToUpdate } from '../types/types'
 interface routes {
   [key: string]: {
     methods: {
       [key: string]: (
         request: http.IncomingMessage,
         response: http.ServerResponse,
-        requestbody?: Book | UpdateLivros
+        requestbody?: Book | BookToUpdate
       ) => void;
     };
   };
@@ -44,24 +40,16 @@ const routes: routes = {
   notFound: {
     methods: {
       get: (request, response) => {
-        response.setHeader("Content-Type", "");
-        response.writeHead(404);
-        response.end("A handler for this endpoint ain't available.");
+        NotFoundController.handle(response);
       },
       post: (request, response) => {
-        response.setHeader("Content-Type", "");
-        response.writeHead(404);
-        response.end("A handler for this endpoint ain't available.");
+        NotFoundController.handle(response);
       },
       put: (request, response) => {
-        response.setHeader("Content-Type", "");
-        response.writeHead(404);
-        response.end("A handler for this endpoint ain't available.");
+        NotFoundController.handle(response);
       },
       delete: (request, response) => {
-        response.setHeader("Content-Type", "");
-        response.writeHead(404);
-        response.end("A handler for this endpoint ain't available.");
+        NotFoundController.handle(response);
       },
     },
   },

@@ -1,23 +1,14 @@
 import { Book } from "../entities/Book";
 import { SearchArray } from "../utils/searchArray";
-import fs from "fs";
-const biblioteca: Array<Book> = require("../../mock/livros.json");
+import { BooksRepository } from "../repository/booksRepository";
 
 class PostBookService {
-  async execute(bookToCreat: Book): Promise<Book | Error> {
-    const { author, bookName } = bookToCreat;
+  async execute(bookToCreate: Book): Promise<Book | Error> {
+    const { author, bookName } = bookToCreate;
     const index = new SearchArray().Search(author, bookName);
     if (index == -1) {
-      // -1 meaning's "the seach method don't find any book with that name or author"
-      biblioteca.push({
-        author: author,
-        bookName: bookName,
-      });
-      const payload = JSON.stringify(biblioteca);
-      fs.writeFile("mock/livros.json", payload, (err) => {
-        if (err) throw err;
-      });
-      return bookToCreat;
+      const { createdBook } = BooksRepository.create(bookToCreate);
+      return createdBook;
     } else {
       throw new Error("The book already exists");
     }

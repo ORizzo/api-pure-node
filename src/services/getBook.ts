@@ -1,9 +1,9 @@
 import { Book } from "../entities/Book";
-import { Books } from "../utils/books";
+import { BooksRepository } from "../repository/booksRepository";
 
 class GetBookService {
   async execute(): Promise<Book[]> {
-    const biblioteca = Books.all();
+    const biblioteca = BooksRepository.getAll();
     return biblioteca;
   }
 }
