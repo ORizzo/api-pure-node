@@ -1,5 +1,5 @@
 import { Book } from "../entities/Book";
-import { Books } from '../utils/books'
+import { Books } from "../utils/books";
 
 class GetBookService {
   async execute(): Promise<Book[]> {

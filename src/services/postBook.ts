@@ -4,7 +4,7 @@ import fs from "fs";
 const biblioteca: Array<Book> = require("../../mock/livros.json");
 
 class PostBookService {
-  async execute(bookToCreat: Book): Promise<Book | Error > {
+  async execute(bookToCreat: Book): Promise<Book | Error> {
     const { author, bookName } = bookToCreat;
     const index = new SearchArray().Search(author, bookName);
     if (index == -1) {

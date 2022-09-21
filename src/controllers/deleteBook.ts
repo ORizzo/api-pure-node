@@ -24,9 +24,7 @@ class DeleteBookController {
       } catch (error) {
         const errorMessage = (error as Error).message;
         response.writeHead(404, errorMessage, defaultHeaders);
-        response.write(
-          "Change the book for which one exists in the database."
-        );
+        response.write("Change the book for which one exists in the database.");
         response.end();
       }
     } catch (error) {

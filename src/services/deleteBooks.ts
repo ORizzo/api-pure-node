@@ -15,7 +15,7 @@ class DeleteBookService {
       fs.writeFile("mock/livros.json", payload, (err) => {
         if (err) throw err;
       });
-      return bookToDelete
+      return bookToDelete;
     }
   }
 }
