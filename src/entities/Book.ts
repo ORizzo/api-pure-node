@@ -1,6 +1,6 @@
-interface Livros {
+interface Book {
   author: string;
   bookName: string;
 }
 
-export { Livros }
+export { Book }

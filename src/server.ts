@@ -1,6 +1,7 @@
 import http from "http";
-import routes from "./routes/routes";
+import { routes } from "./routes/routes";
 import url from "url";
+
 http
   .createServer(async function (request, response) {
     try {
@@ -16,10 +17,7 @@ http
       if (method == "get") {
         var chosenHandler =
           typeof routes[trimmedPath] !== "undefined"
-            ? routes[trimmedPath].methods[method](
-                request,
-                response
-              )
+            ? routes[trimmedPath].methods[method](request, response)
             : routes.notFound.methods[method](request, response);
 
         chosenHandler;

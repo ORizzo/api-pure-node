@@ -1,5 +1,5 @@
-import { Livros } from "../entities/Livros";
-const biblioteca: Array<Livros> = require("../../mock/livros.json");
+import { Book } from "../entities/Book";
+const biblioteca: Array<Book> = require("../../mock/livros.json");
 
 class SearchArray {
   constructor() {}
@@ -30,4 +30,4 @@ class SearchArray {
     return -1;
   }
 }
-export default SearchArray;
+export { SearchArray };

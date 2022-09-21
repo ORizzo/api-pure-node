@@ -1,5 +1,5 @@
 import { ServerResponse } from "http";
-import { defaultHeaders } from "../modules/defaultHeaders";
+import { defaultHeaders } from "../utils/defaultHeaders";
 import { GetBookService } from "../services/getBook";
 class GetBookController {
   static async handle(response: ServerResponse) {

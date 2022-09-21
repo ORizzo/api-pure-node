@@ -1,8 +1,9 @@
-import { Livros } from "../entities/Livros";
+import { Book } from "../entities/Book";
+import { Books } from '../utils/books'
 
 class GetBookService {
-  async execute(): Promise<Livros[]> {
-    const biblioteca: Array<Livros> = await require("../../mock/livros.json");
+  async execute(): Promise<Book[]> {
+    const biblioteca = Books.all();
     return biblioteca;
   }
 }

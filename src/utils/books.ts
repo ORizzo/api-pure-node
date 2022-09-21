@@ -1,8 +1,8 @@
-import { Livros } from "../entities/Livros";
-const biblioteca: Array<Livros> = require("../../mock/livros.json");
+import { Book } from "../entities/Book";
+const biblioteca: Array<Book> = require("../../mock/livros.json");
 
 class Books {
-  static all(): Livros[] {
+  static all(): Book[] {
     return biblioteca;
   }
 }
