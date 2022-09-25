@@ -5,17 +5,17 @@ import url from "url";
 http
   .createServer(async function (request, response) {
     try {
-      //@ts-ignore
+      if (!request.url) throw new Error("Request without url");
       const parsedUrl = url.parse(request.url, true);
       const Path = parsedUrl.pathname;
-      if (!Path) throw new Error("Something went wrong");
+      if (!Path) throw new Error("Request without path");
       const trimmedPath: string = Path.replace(/^\/+|\/+$/g, ""); // o path sem as barras no final e no inicio.
       // const queryStringObject = parsedUrl.query; // o query object com as informações que chegam pela req, vem pela url ou pelo corpo da req
       if (!request.method) throw new Error("The request have not method");
 
-      var method = request.method.toLowerCase();
+      const method = request.method.toLowerCase();
       if (method == "get") {
-        var chosenHandler =
+        const chosenHandler =
           typeof routes[trimmedPath] !== "undefined"
             ? routes[trimmedPath].methods[method](request, response)
             : routes.notFound.methods[method](request, response);
@@ -24,21 +24,21 @@ http
       } else {
         for await (const data of request) {
           const requestbody = JSON.parse(data);
-          var chosenHandler =
+          const chosenHandler =
             typeof routes[trimmedPath] !== "undefined"
               ? routes[trimmedPath].methods[method](
                   request,
                   response,
                   requestbody
                 )
-              : routes.notFound.methods[method](request, response, requestbody);
+              : routes.notFound.methods['default'](request, response, requestbody);
 
           chosenHandler;
         }
       }
     } catch (error) {
       const errorMessage = (error as Error).message;
-      response.writeHead(500, errorMessage);
+      response.writeHead(400, errorMessage);
       response.write("Internal Error");
       response.end("Occourred an error during the request was processing.");
     }

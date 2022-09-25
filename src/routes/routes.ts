@@ -7,8 +7,8 @@ import {
   NotFoundController,
 } from "../controllers/controllers";
 import { Book } from "../entities/Book";
-import { BookToUpdate } from '../types/types'
-interface routes {
+import { BookToUpdate } from "../types/types";
+type routes = {
   [key: string]: {
     methods: {
       [key: string]: (
@@ -18,37 +18,27 @@ interface routes {
       ) => void;
     };
   };
-}
+};
 const routes: routes = {
   livros: {
     methods: {
-      get: (request, response) => {
+      get: (_, response) => {
         GetBookController.handle(response);
       },
-      post: (request, response, requestbody) => {
+      post: (_, response, requestbody) => {
         PostBookController.handle(response, requestbody);
       },
-
-      put: (request, response, requestbody) => {
+      put: (_, response, requestbody) => {
         UpdateBookController.handle(response, requestbody);
       },
-      delete: (request, response, requestbody) => {
+      delete: (_, response, requestbody) => {
         DeleteBookController.handle(response, requestbody);
       },
     },
   },
   notFound: {
     methods: {
-      get: (request, response) => {
-        NotFoundController.handle(response);
-      },
-      post: (request, response) => {
-        NotFoundController.handle(response);
-      },
-      put: (request, response) => {
-        NotFoundController.handle(response);
-      },
-      delete: (request, response) => {
+      default: (_, response) => {
         NotFoundController.handle(response);
       },
     },
