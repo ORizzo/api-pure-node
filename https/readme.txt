@@ -1,0 +1,1 @@
+Colocar nessa pasta o certificado e a chave SSL para configurar o HTTPS do servidor.
