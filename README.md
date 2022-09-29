@@ -21,7 +21,7 @@ npm run init
 ```
 Que é responsável por baixar as tipagens do node, e a dependência concurrenly, além de buildar e iniciar o projeto.
 
-> Adicionar o certificado e a chave do certificado SSL, para configuração do HTTPS
+> Adicionar o certificado e a chave do certificado SSL, dentro da pasta https, para configuração do HTTPS do servidor.
 
 ## Usage
 
