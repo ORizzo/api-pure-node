@@ -1,9 +1,10 @@
-import http from "http";
+import https from "node:https";
 import { routes } from "./routes/routes";
-import url from "url";
+import url from "node:url";
+import { config } from "./utils/config";
 
-http
-  .createServer(async function (request, response) {
+https
+  .createServer(config.https, async function (request, response) {
     try {
       if (!request.url) throw new Error("Request without url");
       const parsedUrl = url.parse(request.url, true);
@@ -31,7 +32,11 @@ http
                   response,
                   requestbody
                 )
-              : routes.notFound.methods['default'](request, response, requestbody);
+              : routes.notFound.methods["default"](
+                  request,
+                  response,
+                  requestbody
+                );
 
           chosenHandler;
         }
