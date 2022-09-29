@@ -11,6 +11,7 @@ CRUD padrão.
 >  Exemplo:
 >  ``"bookName":"nome de teste"``
 
+
 ## Installation
 
 Após clonar o repositório da API, usar o comando:
@@ -19,6 +20,8 @@ Após clonar o repositório da API, usar o comando:
 npm run init
 ```
 Que é responsável por baixar as tipagens do node, e a dependência concurrenly, além de buildar e iniciar o projeto.
+
+> Adicionar o certificado e a chave do certificado SSL, para configuração do HTTPS
 
 ## Usage
 
