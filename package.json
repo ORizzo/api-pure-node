@@ -5,6 +5,7 @@
   "main": "build/server.js",
   "scripts": {
     "init": "npm i && tsc && node build/index.js",
+    "heroku": "tsc && node build/index.js",    
     "dev": "concurrently \"tsc -watch\" \"nodemon build/index.js\""
   },
   "author": "Henrique Rizzo",
