@@ -1,1 +1,1 @@
-web: npm run init
+web: npm run heroku
