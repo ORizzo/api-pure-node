@@ -51,7 +51,8 @@ http
   })
   .listen(process.env.PORT || 8080);
 
-https
+/**
+ * https
   .createServer(config.https, async function (request, response) {
     try {
       if (!request.url) throw new Error("Request without url");
@@ -97,3 +98,4 @@ https
     }
   })
   .listen(8079);
+ */
