@@ -1,10 +1,10 @@
-import https from "node:https";
+import http from "node:http";
 import { routes } from "./routes/routes";
 import url from "node:url";
 import { config } from "./utils/config";
 
-https
-  .createServer(config.https, async function (request, response) {
+http
+  .createServer(async function (request, response) {
     try {
       if (!request.url) throw new Error("Request without url");
       const parsedUrl = url.parse(request.url, true);
