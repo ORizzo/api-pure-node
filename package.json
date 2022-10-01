@@ -4,9 +4,11 @@
   "description": "",
   "main": "build/server.js",
   "scripts": {
-    "init": "npm i && tsc && node build/index.js",
-    "heroku": "node build/index.js",    
-    "dev": "concurrently \"tsc -watch\" \"nodemon build/index.js\""
+    "init": "npm i && npm run build && npm run start",
+    "build": "tsc",
+    "start": "node build/server.js",
+    "postinstall": "npm run build",
+    "dev": "concurrently \"tsc -watch\" \"nodemon build/server.js\""
   },
   "author": "Henrique Rizzo",
   "license": "ISC",
