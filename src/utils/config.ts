@@ -1,8 +1,10 @@
 import fs from "node:fs";
+import path from "path";
+
 const config = {
   https: {
-    key: fs.readFileSync(__dirname + "/https/key.pem"),
-    cert: fs.readFileSync(__dirname + "/https/certificate.pem"),
+    key: fs.readFileSync(path.resolve() + "/https/key.pem"),
+    cert: fs.readFileSync(path.resolve() + "/https/certificate.pem"),
   },
 };
 
