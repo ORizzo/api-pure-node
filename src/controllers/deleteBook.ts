@@ -17,7 +17,7 @@ class DeleteBookController {
         const service = new DeleteBookService();
         const result = await service.execute(bookToDelete);
         const payload = JSON.stringify(result);
-        console.log(payload)
+        
         response.writeHead(200, "The book is already deleted", defaultHeaders);
         response.write(payload);
         response.end();
