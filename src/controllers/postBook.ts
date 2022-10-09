@@ -19,7 +19,7 @@ class PostBookController {
         const payload = JSON.stringify(result);
         response.writeHead(
           201,
-          "The book has been created in the database",
+          "The book was created in the database",
           defaultHeaders
         );
         response.write(payload);
