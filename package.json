@@ -1,5 +1,5 @@
 {
-  "name": "api-without-dependencies",
+  "name": "api-without-dependencies.",
   "version": "1.0.0",
   "description": "",
   "main": "build/server.js",
