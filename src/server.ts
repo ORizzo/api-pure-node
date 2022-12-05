@@ -16,16 +16,12 @@ http
 
       const method = request.method.toLowerCase();
       if (method == "get") {
-        const chosenHandler =
           typeof routes[trimmedPath] !== "undefined"
             ? routes[trimmedPath].methods[method](request, response)
             : routes.notFound.methods[method](request, response);
-
-        chosenHandler;
       } else {
         for await (const data of request) {
           const requestbody = JSON.parse(data);
-          const chosenHandler =
             typeof routes[trimmedPath] !== "undefined"
               ? routes[trimmedPath].methods[method](
                   request,
@@ -37,8 +33,6 @@ http
                   response,
                   requestbody
                 );
-
-          chosenHandler;
         }
       }
     } catch (error) {
