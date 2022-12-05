@@ -1,6 +1,6 @@
 # API-pure-node
 
-> API construída sem dependências, explorando oque o ambiente NodeJS tem a oferecer.
+> API construída sem dependências, explorando o que o ambiente NodeJS tem a oferecer.
 
 ## Interface
 
